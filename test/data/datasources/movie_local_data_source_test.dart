@@ -19,7 +19,7 @@ void main() {
     test('should return success message when insert to database is success',
         () async {
       // arrange
-      when(mockDatabaseHelper.insertWatchlist(testMovieTable))
+      when(mockDatabaseHelper.insertMovie(testMovieTable))
           .thenAnswer((_) async => 1);
       // act
       final result = await dataSource.insertWatchlist(testMovieTable);
@@ -30,7 +30,7 @@ void main() {
     test('should throw DatabaseException when insert to database is failed',
         () async {
       // arrange
-      when(mockDatabaseHelper.insertWatchlist(testMovieTable))
+      when(mockDatabaseHelper.insertMovie(testMovieTable))
           .thenThrow(Exception());
       // act
       final call = dataSource.insertWatchlist(testMovieTable);
@@ -43,7 +43,7 @@ void main() {
     test('should return success message when remove from database is success',
         () async {
       // arrange
-      when(mockDatabaseHelper.removeWatchlist(testMovieTable))
+      when(mockDatabaseHelper.removeMovie(testMovieTable))
           .thenAnswer((_) async => 1);
       // act
       final result = await dataSource.removeWatchlist(testMovieTable);
@@ -54,7 +54,7 @@ void main() {
     test('should throw DatabaseException when remove from database is failed',
         () async {
       // arrange
-      when(mockDatabaseHelper.removeWatchlist(testMovieTable))
+      when(mockDatabaseHelper.removeMovie(testMovieTable))
           .thenThrow(Exception());
       // act
       final call = dataSource.removeWatchlist(testMovieTable);
@@ -89,7 +89,7 @@ void main() {
   group('get watchlist movies', () {
     test('should return list of MovieTable from database', () async {
       // arrange
-      when(mockDatabaseHelper.getWatchlistMovies())
+      when(mockDatabaseHelper.getMovieList())
           .thenAnswer((_) async => [testMovieMap]);
       // act
       final result = await dataSource.getWatchlistMovies();
