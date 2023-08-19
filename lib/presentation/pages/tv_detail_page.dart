@@ -43,7 +43,7 @@ class _TvDetailPageState extends State<TvDetailPage> {
           } else if (provider.tvState == RequestState.Loaded) {
             final tv = provider.tv;
             return SafeArea(
-              child: DetailContent(
+              child: TvDetailContent(
                 tv,
                 provider.tvRecommendations,
                 provider.isAddedToWatchlist,
@@ -58,12 +58,12 @@ class _TvDetailPageState extends State<TvDetailPage> {
   }
 }
 
-class DetailContent extends StatelessWidget {
+class TvDetailContent extends StatelessWidget {
   final TvDetail tv;
   final List<Tv> recommendations;
   final bool isAddedWatchlist;
 
-  DetailContent(this.tv, this.recommendations, this.isAddedWatchlist);
+  TvDetailContent(this.tv, this.recommendations, this.isAddedWatchlist);
 
   @override
   Widget build(BuildContext context) {
