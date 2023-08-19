@@ -1,5 +1,7 @@
 import 'package:ditonton/data/models/genre_model.dart';
+import 'package:ditonton/data/models/tv_season_model.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
+import 'package:ditonton/domain/entities/tv_season.dart';
 import 'package:equatable/equatable.dart';
 
 class TvDetailResponse extends Equatable {
@@ -20,6 +22,9 @@ class TvDetailResponse extends Equatable {
     required this.name,
     required this.voteAverage,
     required this.voteCount,
+    required this.numberOfSeasons,
+    required this.numberOfEpisodes,
+    required this.seasons,
   });
 
   final bool adult;
@@ -38,6 +43,9 @@ class TvDetailResponse extends Equatable {
   final String name;
   final double voteAverage;
   final int voteCount;
+  final int numberOfSeasons;
+  final int numberOfEpisodes;
+  final List<TvSeasonModel> seasons;
 
   factory TvDetailResponse.fromJson(Map<String, dynamic> json) =>
       TvDetailResponse(
@@ -58,6 +66,10 @@ class TvDetailResponse extends Equatable {
         name: json["name"],
         voteAverage: json["vote_average"].toDouble(),
         voteCount: json["vote_count"],
+        numberOfSeasons: json["number_of_seasons"],
+        numberOfEpisodes: json["number_of_episodes"],
+        seasons: List<TvSeasonModel>.from(
+            json["seasons"].map((x) => TvSeasonModel.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -77,6 +89,9 @@ class TvDetailResponse extends Equatable {
         "name": name,
         "vote_average": voteAverage,
         "vote_count": voteCount,
+        "number_of_seasons": numberOfSeasons,
+        "number_of_episodes": numberOfEpisodes,
+        "seasons": List<dynamic>.from(seasons.map((x) => x.toJson())),
       };
 
   TvDetail toEntity() {
@@ -92,6 +107,9 @@ class TvDetailResponse extends Equatable {
       name: this.name,
       voteAverage: this.voteAverage,
       voteCount: this.voteCount,
+      numberOfSeasons: this.numberOfSeasons,
+      numberOfEpisodes: this.numberOfEpisodes,
+      seasons: List<TvSeason>.from(this.seasons.map((x) => x.toEntity())),
     );
   }
 
@@ -113,5 +131,8 @@ class TvDetailResponse extends Equatable {
         name,
         voteAverage,
         voteCount,
+        numberOfSeasons,
+        numberOfEpisodes,
+        seasons,
       ];
 }

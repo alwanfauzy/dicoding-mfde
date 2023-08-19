@@ -3,6 +3,7 @@ import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
+import 'package:ditonton/domain/entities/tv_season.dart';
 import 'package:ditonton/presentation/provider/tv_detail_notifier.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:flutter/material.dart';
@@ -153,9 +154,10 @@ class TvDetailContent extends StatelessWidget {
                             Text(
                               _showGenres(tv.genres),
                             ),
-                            // Text(
-                            //   _showDuration(tv.runtime),
-                            // ),
+                            Text(
+                              _showSeasonsInfo(
+                                  tv.numberOfSeasons, tv.numberOfEpisodes),
+                            ),
                             Row(
                               children: [
                                 RatingBarIndicator(
@@ -239,6 +241,12 @@ class TvDetailContent extends StatelessWidget {
                                 }
                               },
                             ),
+                            SizedBox(height: 16),
+                            Text(
+                              'Seasons',
+                              style: kHeading6,
+                            ),
+                            _seasons(tv.seasons),
                           ],
                         ),
                       ),
@@ -288,5 +296,29 @@ class TvDetailContent extends StatelessWidget {
     }
 
     return result.substring(0, result.length - 2);
+  }
+
+  String _showSeasonsInfo(int seasonCount, int episodeCount) =>
+      "Season Count: $seasonCount\nEpisode Count: $episodeCount";
+
+  Widget _seasons(List<TvSeason> seasons) {
+    return Column(
+      children: seasons
+          .map((season) => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "#${season.seasonNumber} (${season.name})",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: kBodyText.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  Text("Air Date: ${season.airDate ?? "-"}"),
+                  Text("Episodes: ${season.episodeCount}"),
+                  Divider(),
+                ],
+              ))
+          .toList(),
+    );
   }
 }

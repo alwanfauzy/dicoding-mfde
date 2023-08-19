@@ -8,6 +8,7 @@ import 'package:ditonton/common/exception.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
+import 'package:ditonton/domain/entities/tv_season.dart';
 import 'package:ditonton/domain/repositories/tv_repository.dart';
 
 class TvRepositoryImpl implements TvRepository {
@@ -123,5 +124,11 @@ class TvRepositoryImpl implements TvRepository {
   Future<Either<Failure, List<Tv>>> getWatchlistTv() async {
     final result = await localDataSource.getTvList();
     return Right(result.map((data) => data.toEntity()).toList());
+  }
+
+  @override
+  Future<Either<Failure, TvSeason>> getTvSeason(int id) {
+    // TODO: implement getTvSeason
+    throw UnimplementedError();
   }
 }
