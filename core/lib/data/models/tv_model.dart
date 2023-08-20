@@ -2,7 +2,7 @@ import 'package:core/domain/entities/tv.dart';
 import 'package:equatable/equatable.dart';
 
 class TvModel extends Equatable {
-  TvModel({
+  const TvModel({
     required this.backdropPath,
     required this.genreIds,
     required this.id,
@@ -54,16 +54,16 @@ class TvModel extends Equatable {
 
   Tv toEntity() {
     return Tv(
-      backdropPath: this.backdropPath,
-      genreIds: this.genreIds,
-      id: this.id,
-      originalName: this.originalName,
-      overview: this.overview,
-      popularity: this.popularity,
-      posterPath: this.posterPath,
-      name: this.name,
-      voteAverage: this.voteAverage,
-      voteCount: this.voteCount,
+      backdropPath: backdropPath,
+      genreIds: genreIds,
+      id: id,
+      originalName: originalName,
+      overview: overview,
+      popularity: popularity,
+      posterPath: posterPath,
+      name: name,
+      voteAverage: voteAverage,
+      voteCount: voteCount,
     );
   }
 

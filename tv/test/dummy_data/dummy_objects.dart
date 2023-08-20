@@ -6,7 +6,7 @@ import 'package:core/domain/entities/tv_season.dart';
 
 final testTv = Tv(
   backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-  genreIds: [14, 28],
+  genreIds: const [14, 28],
   id: 557,
   originalName: 'Spider-Man',
   overview:
@@ -20,7 +20,7 @@ final testTv = Tv(
 
 final testTvList = [testTv];
 
-final testTvDetail = TvDetail(
+const testTvDetail = TvDetail(
   adult: false,
   backdropPath: 'backdropPath',
   genres: [Genre(id: 1, name: 'Action')],
@@ -53,7 +53,7 @@ final testWatchlistTv = Tv.watchlist(
   overview: 'overview',
 );
 
-final testTvTable = TvTable(
+const testTvTable = TvTable(
   id: 1,
   name: 'name',
   posterPath: 'posterPath',

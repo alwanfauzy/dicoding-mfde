@@ -27,7 +27,7 @@ void main() {
 
   final tTvModel = Tv(
     backdropPath: 'backdropPath',
-    genreIds: [1, 2, 3],
+    genreIds: const [1, 2, 3],
     id: 1,
     originalName: 'originalNam',
     overview: 'overview',
@@ -38,7 +38,7 @@ void main() {
     voteCount: 1,
   );
   final tTvList = <Tv>[tTvModel];
-  final tQuery = 'spiderman';
+  const tQuery = 'spiderman';
 
   group('search tv', () {
     test('should change state to loading when usecase is called', () async {
@@ -67,7 +67,7 @@ void main() {
     test('should return error when data is unsuccessful', () async {
       // arrange
       when(mockSearchTv.execute(tQuery))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       // act
       await provider.fetchTvSearch(tQuery);
       // assert

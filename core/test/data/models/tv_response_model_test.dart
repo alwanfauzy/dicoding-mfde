@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../json_reader.dart';
 
 void main() {
-  final tTvModel = TvModel(
+  const tTvModel = TvModel(
     backdropPath: "/jWXrQstj7p3Wl5MfYWY6IHqRpDb.jpg",
     genreIds: [10763],
     id: 94722,
@@ -20,7 +20,7 @@ void main() {
     voteAverage: 7.5,
     voteCount: 123,
   );
-  final tTvResponseModel = TvResponse(tvList: <TvModel>[tTvModel]);
+  final tTvResponseModel = const TvResponse(tvList: <TvModel>[tTvModel]);
   group('fromJson', () {
     test('should return a valid model from JSON', () async {
       // arrange

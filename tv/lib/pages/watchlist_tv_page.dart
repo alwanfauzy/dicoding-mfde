@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class WatchlistTvPage extends StatefulWidget {
+  const WatchlistTvPage({super.key});
+
   @override
   _WatchlistTvPageState createState() => _WatchlistTvPageState();
 }
@@ -25,6 +27,7 @@ class _WatchlistTvPageState extends State<WatchlistTvPage> with RouteAware {
     routeObserver.subscribe(this, ModalRoute.of(context)!);
   }
 
+  @override
   void didPopNext() {
     Provider.of<WatchlistTvNotifier>(context, listen: false).fetchWatchlistTv();
   }
@@ -36,7 +39,7 @@ class _WatchlistTvPageState extends State<WatchlistTvPage> with RouteAware {
       child: Consumer<WatchlistTvNotifier>(
         builder: (context, data, child) {
           if (data.watchlistState == RequestState.Loading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (data.watchlistState == RequestState.Loaded) {
@@ -49,7 +52,7 @@ class _WatchlistTvPageState extends State<WatchlistTvPage> with RouteAware {
             );
           } else {
             return Center(
-              key: Key('error_message'),
+              key: const Key('error_message'),
               child: Text(data.message),
             );
           }

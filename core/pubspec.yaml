@@ -11,12 +11,6 @@ dependencies:
     flutter:
         sdk: flutter
 
-    about:
-        path: ../about
-
-    movie:
-        path: ../movie
-
     google_fonts: ^5.1.0
     mockito: ^5.4.2
     dartz: ^0.10.1

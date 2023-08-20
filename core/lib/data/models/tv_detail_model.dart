@@ -5,7 +5,7 @@ import 'package:core/domain/entities/tv_season.dart';
 import 'package:equatable/equatable.dart';
 
 class TvDetailResponse extends Equatable {
-  TvDetailResponse({
+  const TvDetailResponse({
     required this.adult,
     required this.backdropPath,
     required this.genres,
@@ -96,20 +96,20 @@ class TvDetailResponse extends Equatable {
 
   TvDetail toEntity() {
     return TvDetail(
-      adult: this.adult,
-      backdropPath: this.backdropPath,
-      genres: this.genres.map((genre) => genre.toEntity()).toList(),
-      id: this.id,
-      originalName: this.originalName,
-      overview: this.overview,
-      posterPath: this.posterPath,
-      runtime: this.runtime,
-      name: this.name,
-      voteAverage: this.voteAverage,
-      voteCount: this.voteCount,
-      numberOfSeasons: this.numberOfSeasons,
-      numberOfEpisodes: this.numberOfEpisodes,
-      seasons: List<TvSeason>.from(this.seasons.map((x) => x.toEntity())),
+      adult: adult,
+      backdropPath: backdropPath,
+      genres: genres.map((genre) => genre.toEntity()).toList(),
+      id: id,
+      originalName: originalName,
+      overview: overview,
+      posterPath: posterPath,
+      runtime: runtime,
+      name: name,
+      voteAverage: voteAverage,
+      voteCount: voteCount,
+      numberOfSeasons: numberOfSeasons,
+      numberOfEpisodes: numberOfEpisodes,
+      seasons: List<TvSeason>.from(seasons.map((x) => x.toEntity())),
     );
   }
 
