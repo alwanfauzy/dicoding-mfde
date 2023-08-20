@@ -128,7 +128,6 @@ class TvRepositoryImpl implements TvRepository {
 
   @override
   Future<Either<Failure, TvSeason>> getTvSeason(int id) {
-    // TODO: implement getTvSeason
     throw UnimplementedError();
   }
 }
