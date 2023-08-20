@@ -7,7 +7,6 @@ import 'package:ditonton/presentation/pages/popular_Tv_page.dart';
 import 'package:ditonton/presentation/pages/top_rated_Tv_page.dart';
 import 'package:ditonton/presentation/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/pages/tv_search_page.dart';
-import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_page.dart';
 import 'package:ditonton/presentation/provider/tv_list_notifier.dart';
 import 'package:ditonton/common/state_enum.dart';
