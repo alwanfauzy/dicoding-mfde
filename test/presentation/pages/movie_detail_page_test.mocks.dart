@@ -52,9 +52,9 @@ class _FakeGetMovieRecommendations_1 extends _i1.SmartFake
         );
 }
 
-class _FakeGetWatchListMovieStatus_2 extends _i1.SmartFake
+class _FakeGetWatchlistMovieStatus_2 extends _i1.SmartFake
     implements _i4.GetWatchlistMovieStatus {
-  _FakeGetWatchListMovieStatus_2(
+  _FakeGetWatchlistMovieStatus_2(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -124,7 +124,7 @@ class MockMovieDetailNotifier extends _i1.Mock
   @override
   _i4.GetWatchlistMovieStatus get getWatchListStatus => (super.noSuchMethod(
         Invocation.getter(#getWatchListStatus),
-        returnValue: _FakeGetWatchListMovieStatus_2(
+        returnValue: _FakeGetWatchlistMovieStatus_2(
           this,
           Invocation.getter(#getWatchListStatus),
         ),
