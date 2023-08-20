@@ -1,6 +1,6 @@
 import 'package:core/utils/state_enum.dart';
-import 'package:ditonton/domain/entities/tv.dart';
-import 'package:ditonton/domain/usecases/get_watchlist_tv.dart';
+import 'package:core/domain/entities/tv.dart';
+import 'package:core/domain/usecases/get_watchlist_tv.dart';
 import 'package:flutter/foundation.dart';
 
 class WatchlistTvNotifier extends ChangeNotifier {

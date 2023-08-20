@@ -1,11 +1,11 @@
-import 'package:ditonton/domain/entities/tv.dart';
-import 'package:ditonton/domain/entities/tv_detail.dart';
-import 'package:ditonton/domain/usecases/get_tv_detail.dart';
-import 'package:ditonton/domain/usecases/get_tv_recommendations.dart';
+import 'package:core/domain/entities/tv.dart';
+import 'package:core/domain/entities/tv_detail.dart';
+import 'package:core/domain/usecases/get_tv_detail.dart';
+import 'package:core/domain/usecases/get_tv_recommendations.dart';
 import 'package:core/utils/state_enum.dart';
-import 'package:ditonton/domain/usecases/get_watchlist_tv_status.dart';
-import 'package:ditonton/domain/usecases/remove_tv_watchlist.dart';
-import 'package:ditonton/domain/usecases/save_tv_watchlist.dart';
+import 'package:core/domain/usecases/get_watchlist_tv_status.dart';
+import 'package:core/domain/usecases/remove_tv_watchlist.dart';
+import 'package:core/domain/usecases/save_tv_watchlist.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
