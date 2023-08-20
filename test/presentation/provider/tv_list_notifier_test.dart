@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/domain/usecases/get_now_playing_tv.dart';
-import 'package:ditonton/common/failure.dart';
+import 'package:core/utils/failure.dart';
 import 'package:ditonton/domain/usecases/get_popular_tv.dart';
 import 'package:ditonton/domain/usecases/get_top_rated_tv.dart';
 import 'package:ditonton/presentation/provider/tv_list_notifier.dart';
-import 'package:ditonton/common/state_enum.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
