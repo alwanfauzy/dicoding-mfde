@@ -26,7 +26,7 @@ class _WatchlistPageState extends State<WatchlistPage> {
           title: const Text('Watchlist'),
           bottom: TabBar(tabs: _tabs),
         ),
-        body: TabBarView(children: [
+        body: const TabBarView(children: [
           WatchlistMoviesPage(),
           WatchlistTvPage(),
         ]),
