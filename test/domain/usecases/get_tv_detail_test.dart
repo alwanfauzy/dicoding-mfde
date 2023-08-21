@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/domain/usecases/get_Tv_detail.dart';
+import 'package:ditonton/domain/usecases/get_tv_detail.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -17,7 +17,7 @@ void main() {
 
   final tId = 1;
 
-  test('should get Tv detail from the repository', () async {
+  test('should get tv detail from the repository', () async {
     // arrange
     when(mockTvRepository.getTvDetail(tId))
         .thenAnswer((_) async => Right(testTvDetail));
