@@ -1,4 +1,4 @@
-import 'package:ditonton/presentation/pages/watchlist_Tv_page.dart';
+import 'package:ditonton/presentation/pages/watchlist_tv_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
 import 'package:flutter/material.dart';
 
