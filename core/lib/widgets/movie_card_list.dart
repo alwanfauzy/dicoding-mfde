@@ -2,13 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/constants.dart';
 import 'package:core/domain/entities/movie.dart';
-import 'package:movie/pages/movie_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class MovieCard extends StatelessWidget {
   final Movie movie;
+  final Function(int) onTapCallback;
 
-  const MovieCard(this.movie, {super.key});
+  const MovieCard(this.movie, {super.key, required this.onTapCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +16,7 @@ class MovieCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 4),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(
-            context,
-            MovieDetailPage.ROUTE_NAME,
-            arguments: movie.id,
-          );
+          onTapCallback(movie.id);
         },
         child: Stack(
           alignment: Alignment.bottomLeft,

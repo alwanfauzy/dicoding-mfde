@@ -47,7 +47,7 @@ class _FakeEither_1<L, R> extends _i1.SmartFake implements _i3.Either<L, R> {
 /// A class which mocks [SearchMovies].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSearchMovies extends _i1.Mock implements _i4.SearchMovies {
+class MockSearchMovies extends _i1.Mock implements _i4.SearchTv {
   MockSearchMovies() {
     _i1.throwOnMissingStub(this);
   }

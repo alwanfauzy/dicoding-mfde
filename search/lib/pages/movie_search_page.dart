@@ -1,9 +1,9 @@
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/state_enum.dart';
-import 'package:movie/provider/movie_search_notifier.dart';
-import 'package:movie/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:search/bloc/movie_search/movie_search_bloc.dart';
+import 'package:search/bloc/movie_search/movie_search_state.dart';
 
 class MovieSearchPage extends StatelessWidget {
   static const ROUTE_NAME = '/search-movie';
@@ -38,14 +38,14 @@ class MovieSearchPage extends StatelessWidget {
               'Search Result',
               style: kHeading6,
             ),
-            Consumer<MovieSearchNotifier>(
-              builder: (context, data, child) {
-                if (data.state == RequestState.Loading) {
+            BlocConsumer<MovieSearchBloc, MovieSearchState>(
+              builder: (context, state) {
+                if (state is Loading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (data.state == RequestState.Loaded) {
-                  final result = data.searchResult;
+                } else if (state is HasData) {
+                  final result = state.result;
                   return Expanded(
                     child: ListView.builder(
                       padding: const EdgeInsets.all(8),

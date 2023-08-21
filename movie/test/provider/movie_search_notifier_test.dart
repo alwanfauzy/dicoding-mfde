@@ -10,7 +10,7 @@ import 'package:mockito/mockito.dart';
 
 import 'movie_search_notifier_test.mocks.dart';
 
-@GenerateMocks([SearchMovies])
+@GenerateMocks([SearchTv])
 void main() {
   late MovieSearchNotifier provider;
   late MockSearchMovies mockSearchMovies;

@@ -1,7 +1,7 @@
 import 'package:core/utils/state_enum.dart';
 import 'package:core/utils/utils.dart';
 import 'package:movie/provider/watchlist_movie_notifier.dart';
-import 'package:movie/widgets/movie_card_list.dart';
+import '../../../lib/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
