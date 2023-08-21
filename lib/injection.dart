@@ -29,14 +29,14 @@ import 'package:core/domain/usecases/search_movies.dart';
 import 'package:core/domain/usecases/search_tv.dart';
 import 'package:movie/provider/movie_detail_notifier.dart';
 import 'package:movie/provider/movie_list_notifier.dart';
-import 'package:movie/provider/movie_search_notifier.dart';
 import 'package:movie/provider/popular_movies_notifier.dart';
+import 'package:search/bloc/movie_search/movie_search_bloc.dart';
+import 'package:search/bloc/tv_search/tv_search_bloc.dart';
 import 'package:tv/provider/popular_tv_notifier.dart';
 import 'package:movie/provider/top_rated_movies_notifier.dart';
 import 'package:tv/provider/top_rated_tv_notifier.dart';
 import 'package:tv/provider/tv_detail_notifier.dart';
 import 'package:tv/provider/tv_list_notifier.dart';
-import 'package:tv/provider/tv_search_notifier.dart';
 import 'package:movie/provider/watchlist_movie_notifier.dart';
 import 'package:tv/provider/watchlist_tv_notifier.dart';
 import 'package:http/http.dart' as http;
@@ -63,9 +63,7 @@ void init() {
     ),
   );
   locator.registerFactory(
-    () => MovieSearchNotifier(
-      searchMovies: locator(),
-    ),
+    () => MovieSearchBloc(locator()),
   );
   locator.registerFactory(
     () => PopularMoviesNotifier(
@@ -109,9 +107,7 @@ void init() {
     ),
   );
   locator.registerFactory(
-    () => TvSearchNotifier(
-      searchTv: locator(),
-    ),
+    () => TvSearchBloc(locator()),
   );
   locator.registerFactory(
     () => WatchlistTvNotifier(
@@ -125,7 +121,7 @@ void init() {
   locator.registerLazySingleton(() => GetTopRatedMovies(locator()));
   locator.registerLazySingleton(() => GetMovieDetail(locator()));
   locator.registerLazySingleton(() => GetMovieRecommendations(locator()));
-  locator.registerLazySingleton(() => SearchTv(locator()));
+  locator.registerLazySingleton(() => SearchMovies(locator()));
   locator.registerLazySingleton(() => GetWatchlistMovieStatus(locator()));
   locator.registerLazySingleton(() => SaveMovieWatchlist(locator()));
   locator.registerLazySingleton(() => RemoveMovieWatchlist(locator()));

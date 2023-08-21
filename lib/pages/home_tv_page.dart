@@ -8,7 +8,7 @@ import 'package:ditonton/pages/watchlist_page.dart';
 import 'package:tv/pages/popular_Tv_page.dart';
 import 'package:tv/pages/top_rated_Tv_page.dart';
 import 'package:tv/pages/tv_detail_page.dart';
-import 'package:tv/pages/tv_search_page.dart';
+import 'package:search/pages/tv_search_page.dart';
 import 'package:tv/provider/tv_list_notifier.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';

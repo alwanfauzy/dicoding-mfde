@@ -3,26 +3,27 @@ import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/utils.dart';
 import 'package:ditonton/pages/home_tv_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/pages/movie_detail_page.dart';
 import 'package:ditonton/pages/home_movie_page.dart';
 import 'package:tv/pages/popular_Tv_page.dart';
 import 'package:movie/pages/popular_movies_page.dart';
-import 'package:movie/pages/movie_search_page.dart';
+import 'package:search/pages/movie_search_page.dart';
 import 'package:movie/pages/top_rated_movies_page.dart';
 import 'package:tv/pages/top_rated_tv_page.dart';
 import 'package:tv/pages/tv_detail_page.dart';
-import 'package:tv/pages/tv_search_page.dart';
+import 'package:search/pages/tv_search_page.dart';
 import 'package:ditonton/pages/watchlist_page.dart';
 import 'package:movie/provider/movie_detail_notifier.dart';
 import 'package:movie/provider/movie_list_notifier.dart';
-import 'package:movie/provider/movie_search_notifier.dart';
+import 'package:search/bloc/movie_search/movie_search_bloc.dart';
 import 'package:movie/provider/popular_movies_notifier.dart';
 import 'package:tv/provider/popular_tv_notifier.dart';
 import 'package:movie/provider/top_rated_movies_notifier.dart';
 import 'package:tv/provider/top_rated_tv_notifier.dart';
 import 'package:tv/provider/tv_detail_notifier.dart';
 import 'package:tv/provider/tv_list_notifier.dart';
-import 'package:tv/provider/tv_search_notifier.dart';
+import 'package:search/bloc/tv_search/tv_search_bloc.dart';
 import 'package:movie/provider/watchlist_movie_notifier.dart';
 import 'package:tv/provider/watchlist_tv_notifier.dart';
 import 'package:flutter/cupertino.dart';
@@ -52,11 +53,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => di.locator<TvDetailNotifier>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieSearchNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MovieSearchBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSearchNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<TvSearchBloc>(),
         ),
         ChangeNotifierProvider(
           create: (_) => di.locator<TopRatedMoviesNotifier>(),

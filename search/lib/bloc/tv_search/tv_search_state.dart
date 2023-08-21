@@ -1,4 +1,4 @@
-import 'package:core/domain/entities/movie.dart';
+import 'package:core/domain/entities/tv.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class TvSearchState extends Equatable {
@@ -20,7 +20,7 @@ class Error extends TvSearchState {
 }
 
 class HasData extends TvSearchState {
-  final List<Movie> result;
+  final List<Tv> result;
 
   HasData(this.result);
 

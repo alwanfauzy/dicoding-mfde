@@ -3,10 +3,10 @@ import 'package:core/utils/failure.dart';
 import 'package:core/domain/entities/movie.dart';
 import 'package:core/domain/repositories/movie_repository.dart';
 
-class SearchTv {
+class SearchMovies {
   final MovieRepository repository;
 
-  SearchTv(this.repository);
+  SearchMovies(this.repository);
 
   Future<Either<Failure, List<Movie>>> execute(String query) {
     return repository.searchMovies(query);

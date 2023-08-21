@@ -5,6 +5,7 @@ import 'package:core/domain/entities/genre.dart';
 import 'package:core/domain/entities/tv.dart';
 import 'package:core/domain/entities/tv_detail.dart';
 import 'package:core/domain/entities/tv_season.dart';
+import 'package:core/utils/constants.dart';
 import 'package:tv/provider/tv_detail_notifier.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
 class TvDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail-tv';
+  static const ROUTE_NAME = TV_DETAIL_PAGE_ROUTE;
 
   final int id;
   const TvDetailPage({super.key, required this.id});
@@ -65,7 +66,8 @@ class TvDetailContent extends StatelessWidget {
   final List<Tv> recommendations;
   final bool isAddedWatchlist;
 
-  const TvDetailContent(this.tv, this.recommendations, this.isAddedWatchlist, {super.key});
+  const TvDetailContent(this.tv, this.recommendations, this.isAddedWatchlist,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -215,7 +217,8 @@ class TvDetailContent extends StatelessWidget {
                                               );
                                             },
                                             child: ClipRRect(
-                                              borderRadius: const BorderRadius.all(
+                                              borderRadius:
+                                                  const BorderRadius.all(
                                                 Radius.circular(8),
                                               ),
                                               child: CachedNetworkImage(

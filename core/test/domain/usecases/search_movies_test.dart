@@ -7,12 +7,12 @@ import 'package:mockito/mockito.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late SearchTv usecase;
+  late SearchMovies usecase;
   late MockMovieRepository mockMovieRepository;
 
   setUp(() {
     mockMovieRepository = MockMovieRepository();
-    usecase = SearchTv(mockMovieRepository);
+    usecase = SearchMovies(mockMovieRepository);
   });
 
   final tMovies = <Movie>[];

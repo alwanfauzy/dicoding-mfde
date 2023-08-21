@@ -7,7 +7,7 @@ import 'package:ditonton/pages/home_tv_page.dart';
 import 'package:ditonton/pages/watchlist_page.dart';
 import 'package:movie/pages/movie_detail_page.dart';
 import 'package:movie/pages/popular_movies_page.dart';
-import 'package:movie/pages/movie_search_page.dart';
+import 'package:search/pages/movie_search_page.dart';
 import 'package:movie/pages/top_rated_movies_page.dart';
 import 'package:movie/provider/movie_list_notifier.dart';
 import 'package:core/utils/state_enum.dart';

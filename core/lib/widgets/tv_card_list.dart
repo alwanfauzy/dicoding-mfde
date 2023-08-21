@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/constants.dart';
 import 'package:core/domain/entities/tv.dart';
-import 'package:tv/pages/tv_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class TvCard extends StatelessWidget {
@@ -18,7 +17,7 @@ class TvCard extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(
             context,
-            TvDetailPage.ROUTE_NAME,
+            TV_DETAIL_PAGE_ROUTE,
             arguments: tv.id,
           );
         },

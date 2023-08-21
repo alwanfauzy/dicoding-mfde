@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 
 class MovieCard extends StatelessWidget {
   final Movie movie;
-  final Function(int) onTapCallback;
 
-  const MovieCard(this.movie, {super.key, required this.onTapCallback});
+  const MovieCard(this.movie, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,11 @@ class MovieCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 4),
       child: InkWell(
         onTap: () {
-          onTapCallback(movie.id);
+          Navigator.pushNamed(
+            context,
+            MOVIE_DETAIL_PAGE_ROUTE,
+            arguments: movie.id,
+          );
         },
         child: Stack(
           alignment: Alignment.bottomLeft,

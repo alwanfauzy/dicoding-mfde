@@ -9,7 +9,7 @@ EventTransformer<T> debounce<T>(Duration duration) {
 }
 
 class MovieSearchBloc extends Bloc<MovieSearchEvent, MovieSearchState> {
-  final SearchTv _searchMovies;
+  final SearchMovies _searchMovies;
 
   MovieSearchBloc(this._searchMovies) : super(Empty()) {
     on<OnQueryChanged>((event, emit) async {
@@ -21,7 +21,11 @@ class MovieSearchBloc extends Bloc<MovieSearchEvent, MovieSearchState> {
       result.fold((failure) {
         emit(Error(failure.message));
       }, (success) {
-        emit(HasData(success));
+        if (success.isEmpty) {
+          emit(Empty());
+        } else {
+          emit(HasData(success));
+        }
       });
     }, transformer: debounce(const Duration(milliseconds: 500)));
   }

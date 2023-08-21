@@ -4,6 +4,7 @@ import 'package:core/styles/text_styles.dart';
 import 'package:core/domain/entities/genre.dart';
 import 'package:core/domain/entities/movie.dart';
 import 'package:core/domain/entities/movie_detail.dart';
+import 'package:core/utils/constants.dart';
 import 'package:movie/provider/movie_detail_notifier.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
 class MovieDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail';
+  static const ROUTE_NAME = MOVIE_DETAIL_PAGE_ROUTE;
 
   final int id;
   const MovieDetailPage({super.key, required this.id});
@@ -64,7 +65,9 @@ class MovieDetailContent extends StatelessWidget {
   final List<Movie> recommendations;
   final bool isAddedWatchlist;
 
-  const MovieDetailContent(this.movie, this.recommendations, this.isAddedWatchlist, {super.key});
+  const MovieDetailContent(
+      this.movie, this.recommendations, this.isAddedWatchlist,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -215,7 +218,8 @@ class MovieDetailContent extends StatelessWidget {
                                               );
                                             },
                                             child: ClipRRect(
-                                              borderRadius: const BorderRadius.all(
+                                              borderRadius:
+                                                  const BorderRadius.all(
                                                 Radius.circular(8),
                                               ),
                                               child: CachedNetworkImage(
