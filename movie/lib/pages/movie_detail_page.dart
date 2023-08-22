@@ -45,8 +45,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocConsumer<MovieDetailBloc, MovieDetailState>(
-        listener: (_, __) {},
+      body: BlocBuilder<MovieDetailBloc, MovieDetailState>(
         builder: (context, state) {
           if (state is MovieDetailLoading) {
             return const Center(
@@ -147,9 +146,8 @@ class MovieDetailContent extends StatelessWidget {
                               'Recommendations',
                               style: kHeading6,
                             ),
-                            BlocConsumer<MovieRecommendationsBloc,
+                            BlocBuilder<MovieRecommendationsBloc,
                                 MovieRecommendationsState>(
-                              listener: (context, state) {},
                               builder: (context, state) {
                                 if (state is MovieRecommendationsLoading) {
                                   return const Center(

@@ -3,12 +3,12 @@ import 'package:dartz/dartz.dart';
 import 'package:core/utils/failure.dart';
 import 'package:core/domain/entities/tv.dart';
 
-class GetWatchlistTv {
+class GetTvNowPlaying {
   final TvRepository repository;
 
-  GetWatchlistTv(this.repository);
+  GetTvNowPlaying(this.repository);
 
   Future<Either<Failure, List<Tv>>> execute() {
-    return repository.getWatchlistTv();
+    return repository.getNowPlayingTv();
   }
 }

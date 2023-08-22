@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:core/domain/usecases/get_top_rated_tv.dart';
+import 'package:core/domain/usecases/get_tv_top_rated.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -7,12 +7,12 @@ import '../../dummy_data/dummy_objects.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late GetTopRatedTv usecase;
+  late GetTvTopRated usecase;
   late MockTvRepository mockTvRepository;
 
   setUp(() {
     mockTvRepository = MockTvRepository();
-    usecase = GetTopRatedTv(mockTvRepository);
+    usecase = GetTvTopRated(mockTvRepository);
   });
 
   test('should get list of Tv from repository', () async {

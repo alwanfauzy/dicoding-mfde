@@ -1,18 +1,18 @@
 import 'package:dartz/dartz.dart';
 import 'package:core/domain/entities/tv.dart';
-import 'package:core/domain/usecases/get_now_playing_tv.dart';
+import 'package:core/domain/usecases/get_tv_now_playing.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late GetNowPlayingTv usecase;
+  late GetTvNowPlaying usecase;
   late MockTvRepository mockTvRepository;
 
   setUp(() {
     mockTvRepository = MockTvRepository();
-    usecase = GetNowPlayingTv(mockTvRepository);
+    usecase = GetTvNowPlaying(mockTvRepository);
   });
 
   final tv = <Tv>[];

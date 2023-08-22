@@ -1,16 +1,16 @@
-import 'package:core/domain/usecases/get_watchlist_tv_status.dart';
+import 'package:core/domain/usecases/get_tv_watchlist_status.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late GetWatchlistTvStatus usecase;
+  late GetTvWatchlistStatus usecase;
   late MockTvRepository mockTvRepository;
 
   setUp(() {
     mockTvRepository = MockTvRepository();
-    usecase = GetWatchlistTvStatus(mockTvRepository);
+    usecase = GetTvWatchlistStatus(mockTvRepository);
   });
 
   test('should get tv watchlist status from repository', () async {

@@ -12,7 +12,7 @@ import 'package:mockito/mockito.dart';
 
 import 'tv_list_notifier_test.mocks.dart';
 
-@GenerateMocks([GetNowPlayingTv, GetPopularTv, GetTopRatedTv])
+@GenerateMocks([GetTvNowPlaying, GetPopularTv, GetTopRatedTv])
 void main() {
   late TvListNotifier provider;
   late MockGetNowPlayingTv mockGetNowPlayingTv;
