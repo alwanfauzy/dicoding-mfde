@@ -3,7 +3,10 @@ import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/ssl_pinning/http_ssl_pinning.dart';
 import 'package:core/utils/utils.dart';
+import 'package:ditonton/firebase_options.dart';
 import 'package:ditonton/pages/home_tv_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/bloc/movie_detail/movie_detail_bloc.dart';
 import 'package:movie/bloc/movie_now_playing/movie_now_playing_bloc.dart';
@@ -38,7 +41,9 @@ import 'package:ditonton/injection.dart' as di;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await HttpSSLPinning.init();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   di.init();
   runApp(const MyApp());
 }
