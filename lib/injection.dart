@@ -27,6 +27,7 @@ import 'package:core/domain/usecases/save_tv_watchlist.dart';
 import 'package:core/domain/usecases/save_movie_watchlist.dart';
 import 'package:core/domain/usecases/search_movie.dart';
 import 'package:core/domain/usecases/search_tv.dart';
+import 'package:core/utils/ssl_pinning/http_ssl_pinning.dart';
 import 'package:movie/bloc/movie_detail/movie_detail_bloc.dart';
 import 'package:movie/bloc/movie_popular/movie_popular_bloc.dart';
 import 'package:movie/bloc/movie_recommendations/movie_recommendations_bloc.dart';
@@ -125,5 +126,5 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => HttpSSLPinning.client);
 }

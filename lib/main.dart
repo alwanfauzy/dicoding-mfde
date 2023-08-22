@@ -1,6 +1,7 @@
 import 'package:about/about_page.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
+import 'package:core/utils/ssl_pinning/http_ssl_pinning.dart';
 import 'package:core/utils/utils.dart';
 import 'package:ditonton/pages/home_tv_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,7 +35,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ditonton/injection.dart' as di;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await HttpSSLPinning.init();
+
   di.init();
   runApp(const MyApp());
 }
