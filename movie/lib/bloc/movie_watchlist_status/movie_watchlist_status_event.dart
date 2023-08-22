@@ -12,10 +12,19 @@ class OnFetchWatchlistStatus extends MovieWatchlistStatusEvent {
   List<Object?> get props => [id];
 }
 
-class OnAddRemoveWatchlist extends MovieWatchlistStatusEvent {
+class OnSaveWatchlist extends MovieWatchlistStatusEvent {
   final MovieDetail movie;
 
-  OnAddRemoveWatchlist(this.movie);
+  OnSaveWatchlist(this.movie);
+
+  @override
+  List<Object?> get props => [movie];
+}
+
+class OnRemoveWatchlist extends MovieWatchlistStatusEvent {
+  final MovieDetail movie;
+
+  OnRemoveWatchlist(this.movie);
 
   @override
   List<Object?> get props => [movie];

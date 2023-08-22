@@ -1,4 +1,4 @@
-import 'package:core/utils/exception.dart';
+import 'package:core/core.dart';
 import 'package:core/data/datasources/db/database_helper.dart';
 import 'package:core/data/models/tv_table.dart';
 
@@ -18,7 +18,7 @@ class TvLocalDataSourceImpl implements TvLocalDataSource {
   Future<String> insertTv(TvTable tv) async {
     try {
       await databaseHelper.insertTv(tv);
-      return 'Added to Watchlist';
+      return MESSAGE_ADD_WATCHLIST;
     } catch (e) {
       throw DatabaseException(e.toString());
     }
@@ -28,7 +28,7 @@ class TvLocalDataSourceImpl implements TvLocalDataSource {
   Future<String> removeTv(TvTable tv) async {
     try {
       await databaseHelper.removeTv(tv);
-      return 'Removed from Watchlist';
+      return MESSAGE_REMOVE_WATCHLIST;
     } catch (e) {
       throw DatabaseException(e.toString());
     }

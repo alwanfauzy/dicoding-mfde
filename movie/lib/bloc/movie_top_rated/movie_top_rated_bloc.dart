@@ -1,10 +1,10 @@
-import 'package:core/domain/usecases/get_top_rated_movies.dart';
+import 'package:core/domain/usecases/get_movie_top_rated.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/bloc/movie_top_rated/movie_top_rated_event.dart';
 import 'package:movie/bloc/movie_top_rated/movie_top_rated_state.dart';
 
 class MovieTopRatedBloc extends Bloc<MovieTopRatedEvent, MovieTopRatedState> {
-  final GetTopRatedMovies _getMovieTopRated;
+  final GetMovieTopRated _getMovieTopRated;
 
   MovieTopRatedBloc(this._getMovieTopRated) : super(MovieTopRatedEmpty()) {
     on<OnFetchTopRated>((event, emit) async {

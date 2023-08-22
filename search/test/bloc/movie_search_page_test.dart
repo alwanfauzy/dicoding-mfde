@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:core/domain/entities/movie.dart';
-import 'package:core/domain/usecases/search_movies.dart';
+import 'package:core/domain/usecases/search_movie.dart';
 import 'package:dartz/dartz.dart';
 import 'package:core/utils/failure.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,14 +12,14 @@ import 'package:search/bloc/movie_search/movie_search_state.dart';
 
 import 'movie_search_page_test.mocks.dart';
 
-@GenerateMocks([SearchMovies])
+@GenerateMocks([SearchMovie])
 void main() {
-  late MockSearchMovies mockSearchMovies;
+  late MockSearchMovies mockSearchMovie;
   late MovieSearchBloc movieSearchBloc;
 
   setUp(() {
-    mockSearchMovies = MockSearchMovies();
-    movieSearchBloc = MovieSearchBloc(mockSearchMovies);
+    mockSearchMovie = MockSearchMovie();
+    movieSearchBloc = MovieSearchBloc(mockSearchMovie);
   });
 
   final tMovieModel = Movie(
@@ -45,7 +45,7 @@ void main() {
     blocTest<MovieSearchBloc, MovieSearchState>(
       'should emit HasData state when data successfully fetched',
       build: () {
-        when(mockSearchMovies.execute(tQuery))
+        when(mockSearchMovie.execute(tQuery))
             .thenAnswer((_) async => Right(tMovieList));
         return movieSearchBloc;
       },
@@ -56,7 +56,7 @@ void main() {
         HasData(tMovieList),
       ],
       verify: (bloc) {
-        verify(mockSearchMovies.execute(tQuery));
+        verify(mockSearchMovie.execute(tQuery));
         return OnQueryChanged(tQuery).props;
       },
     );
@@ -64,7 +64,7 @@ void main() {
     blocTest<MovieSearchBloc, MovieSearchState>(
       'should emit Error state when the searched data failed to fetch',
       build: () {
-        when(mockSearchMovies.execute(tQuery)).thenAnswer(
+        when(mockSearchMovie.execute(tQuery)).thenAnswer(
             (_) async => const Left(ServerFailure('Server Failure')));
         return movieSearchBloc;
       },
@@ -75,7 +75,7 @@ void main() {
         Error('Server Failure'),
       ],
       verify: (bloc) {
-        verify(mockSearchMovies.execute(tQuery));
+        verify(mockSearchMovie.execute(tQuery));
         return Loading().props;
       },
     );
@@ -83,7 +83,7 @@ void main() {
     blocTest<MovieSearchBloc, MovieSearchState>(
       'should emit Empty state when the searched data is empty',
       build: () {
-        when(mockSearchMovies.execute(tQuery))
+        when(mockSearchMovie.execute(tQuery))
             .thenAnswer((_) async => const Right([]));
         return movieSearchBloc;
       },
@@ -94,7 +94,7 @@ void main() {
         Empty(),
       ],
       verify: (bloc) {
-        verify(mockSearchMovies.execute(tQuery));
+        verify(mockSearchMovie.execute(tQuery));
       },
     );
   });

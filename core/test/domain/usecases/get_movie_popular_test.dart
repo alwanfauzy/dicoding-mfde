@@ -1,18 +1,18 @@
+import 'package:core/domain/usecases/get_movie_popular.dart';
 import 'package:dartz/dartz.dart';
 import 'package:core/domain/entities/movie.dart';
-import 'package:core/domain/usecases/get_popular_movies.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late GetPopularMovies usecase;
+  late GetMoviePopular usecase;
   late MockMovieRepository mockMovieRpository;
 
   setUp(() {
     mockMovieRpository = MockMovieRepository();
-    usecase = GetPopularMovies(mockMovieRpository);
+    usecase = GetMoviePopular(mockMovieRpository);
   });
 
   final tMovies = <Movie>[];

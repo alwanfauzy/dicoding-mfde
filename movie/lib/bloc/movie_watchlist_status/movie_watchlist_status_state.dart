@@ -9,20 +9,12 @@ class MovieWatchlistStatusEmpty extends MovieWatchlistStatusState {
 
 class MovieWatchlistStatusIsAdded extends MovieWatchlistStatusState {
   final bool isAdded;
+  final String? message;
 
-  MovieWatchlistStatusIsAdded(this.isAdded);
+  MovieWatchlistStatusIsAdded({required this.isAdded, this.message});
 
   @override
   List<Object?> get props => [isAdded];
-}
-
-class MovieWatchlistStatusMessage extends MovieWatchlistStatusState {
-  final String message;
-
-  MovieWatchlistStatusMessage(this.message);
-
-  @override
-  List<Object?> get props => [message];
 }
 
 class MovieWatchlistStatusError extends MovieWatchlistStatusState {

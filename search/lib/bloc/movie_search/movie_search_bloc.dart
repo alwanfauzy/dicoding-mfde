@@ -1,4 +1,4 @@
-import 'package:core/domain/usecases/search_movies.dart';
+import 'package:core/domain/usecases/search_movie.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/transformers.dart';
 import 'package:search/bloc/movie_search/movie_search_event.dart';
@@ -9,7 +9,7 @@ EventTransformer<T> debounce<T>(Duration duration) {
 }
 
 class MovieSearchBloc extends Bloc<MovieSearchEvent, MovieSearchState> {
-  final SearchMovies _searchMovies;
+  final SearchMovie _searchMovies;
 
   MovieSearchBloc(this._searchMovies) : super(Empty()) {
     on<OnQueryChanged>((event, emit) async {

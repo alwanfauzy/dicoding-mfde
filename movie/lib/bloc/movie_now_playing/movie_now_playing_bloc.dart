@@ -1,11 +1,11 @@
-import 'package:core/domain/usecases/get_popular_movies.dart';
+import 'package:core/domain/usecases/get_movie_now_playing.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/bloc/movie_now_playing/movie_now_playing_event.dart';
 import 'package:movie/bloc/movie_now_playing/movie_now_playing_state.dart';
 
 class MovieNowPlayingBloc
     extends Bloc<MovieNowPlayingEvent, MovieNowPlayingState> {
-  final GetPopularMovies _getMovieNowPlaying;
+  final GetMovieNowPlaying _getMovieNowPlaying;
 
   MovieNowPlayingBloc(this._getMovieNowPlaying)
       : super(MovieNowPlayingEmpty()) {
