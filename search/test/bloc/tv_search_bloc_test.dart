@@ -38,6 +38,10 @@ void main() {
   const tQuery = 'spiderman';
 
   group('search tv', () {
+    test('should emit Empty state initially', () {
+      expect(tvSearchBloc.state, TvSearchEmpty());
+    });
+
     blocTest<TvSearchBloc, TvSearchState>(
       'should emit HasData state when data successfully fetched',
       build: () {

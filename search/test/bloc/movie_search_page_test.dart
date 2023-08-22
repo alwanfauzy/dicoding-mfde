@@ -42,6 +42,9 @@ void main() {
   const tQuery = 'spiderman';
 
   group('search movie', () {
+    test('should emit Empty state initially', () {
+      expect(movieSearchBloc.state, MovieSearchEmpty());
+    });
     blocTest<MovieSearchBloc, MovieSearchState>(
       'should emit HasData state when data successfully fetched',
       build: () {
