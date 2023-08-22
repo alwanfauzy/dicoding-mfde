@@ -49,7 +49,7 @@ import 'package:tv/bloc/tv_watchlist_status/movie_watchlist_status_bloc.dart';
 final locator = GetIt.instance;
 
 void init() {
-  // provider
+  // bloc
   locator.registerFactory(() => MovieRecommendationsBloc(locator()));
   locator.registerFactory(() => MovieDetailBloc(locator()));
   locator.registerFactory(() => MovieSearchBloc(locator()));

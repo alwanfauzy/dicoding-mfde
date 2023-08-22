@@ -1,8 +1,6 @@
-import 'package:core/utils/state_enum.dart';
 import 'package:core/widgets/tv_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 import 'package:tv/bloc/tv_top_rated/tv_top_rated_bloc.dart';
 import 'package:tv/bloc/tv_top_rated/tv_top_rated_event.dart';
 import 'package:tv/bloc/tv_top_rated/tv_top_rated_state.dart';

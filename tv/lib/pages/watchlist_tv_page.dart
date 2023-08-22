@@ -1,9 +1,7 @@
-import 'package:core/utils/state_enum.dart';
 import 'package:core/utils/utils.dart';
 import 'package:core/widgets/tv_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 import 'package:tv/bloc/tv_watchlist/tv_watchlist_bloc.dart';
 import 'package:tv/bloc/tv_watchlist/tv_watchlist_event.dart';
 import 'package:tv/bloc/tv_watchlist/tv_watchlist_state.dart';
