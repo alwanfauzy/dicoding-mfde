@@ -6,23 +6,23 @@ abstract class TvSearchState extends Equatable {
   List<Object?> get props => [];
 }
 
-class Loading extends TvSearchState {}
+class TvSearchLoading extends TvSearchState {}
 
-class Empty extends TvSearchState {}
+class TvSearchEmpty extends TvSearchState {}
 
-class Error extends TvSearchState {
+class TvSearchError extends TvSearchState {
   final String message;
 
-  Error(this.message);
+  TvSearchError(this.message);
 
   @override
   List<Object?> get props => [message];
 }
 
-class HasData extends TvSearchState {
+class TvSearchHasData extends TvSearchState {
   final List<Tv> result;
 
-  HasData(this.result);
+  TvSearchHasData(this.result);
 
   @override
   List<Object?> get props => [result];

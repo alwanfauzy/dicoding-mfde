@@ -1,32 +1,29 @@
 import 'package:core/domain/usecases/search_movie.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rxdart/transformers.dart';
 import 'package:search/bloc/movie_search/movie_search_event.dart';
 import 'package:search/bloc/movie_search/movie_search_state.dart';
-
-EventTransformer<T> debounce<T>(Duration duration) {
-  return (events, mapper) => events.debounceTime(duration).flatMap(mapper);
-}
+import 'package:search/utils/constants.dart';
+import 'package:search/utils/debounce_event_transformer.dart';
 
 class MovieSearchBloc extends Bloc<MovieSearchEvent, MovieSearchState> {
   final SearchMovie _searchMovies;
 
-  MovieSearchBloc(this._searchMovies) : super(Empty()) {
+  MovieSearchBloc(this._searchMovies) : super(MovieSearchEmpty()) {
     on<OnQueryChanged>((event, emit) async {
       final query = event.query;
 
-      emit(Loading());
+      emit(MovieSearchLoading());
       final result = await _searchMovies.execute(query);
 
       result.fold((failure) {
-        emit(Error(failure.message));
+        emit(MovieSearchError(failure.message));
       }, (success) {
         if (success.isEmpty) {
-          emit(Empty());
+          emit(MovieSearchEmpty());
         } else {
-          emit(HasData(success));
+          emit(MovieSearchHasData(success));
         }
       });
-    }, transformer: debounce(const Duration(milliseconds: 500)));
+    }, transformer: debounce(DURATION_DEBOUNCE));
   }
 }

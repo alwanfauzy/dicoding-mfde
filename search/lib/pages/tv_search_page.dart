@@ -40,11 +40,11 @@ class TvSearchPage extends StatelessWidget {
             ),
             BlocConsumer<TvSearchBloc, TvSearchState>(
                 builder: ((context, state) {
-                  if (state is Loading) {
+                  if (state is TvSearchLoading) {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
-                  } else if (state is HasData) {
+                  } else if (state is TvSearchHasData) {
                     final result = state.result;
                     return Expanded(
                       child: ListView.builder(

@@ -1,32 +1,29 @@
 import 'package:core/domain/usecases/search_tv.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rxdart/transformers.dart';
 import 'package:search/bloc/tv_search/tv_search_event.dart';
 import 'package:search/bloc/tv_search/tv_search_state.dart';
-
-EventTransformer<T> debounce<T>(Duration duration) {
-  return (events, mapper) => events.debounceTime(duration).flatMap(mapper);
-}
+import 'package:search/utils/constants.dart';
+import 'package:search/utils/debounce_event_transformer.dart';
 
 class TvSearchBloc extends Bloc<TvSearchEvent, TvSearchState> {
   final SearchTv _searchTv;
 
-  TvSearchBloc(this._searchTv) : super(Empty()) {
+  TvSearchBloc(this._searchTv) : super(TvSearchEmpty()) {
     on<OnQueryChanged>((event, emit) async {
       final query = event.query;
 
-      emit(Loading());
+      emit(TvSearchLoading());
       final result = await _searchTv.execute(query);
 
       result.fold((failure) {
-        emit(Error(failure.message));
+        emit(TvSearchError(failure.message));
       }, (success) {
         if (success.isEmpty) {
-          emit(Empty());
+          emit(TvSearchEmpty());
         } else {
-          emit(HasData(success));
+          emit(TvSearchHasData(success));
         }
       });
-    }, transformer: debounce(const Duration(milliseconds: 500)));
+    }, transformer: debounce(DURATION_DEBOUNCE));
   }
 }

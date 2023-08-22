@@ -48,8 +48,8 @@ void main() {
       act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
-        Loading(),
-        HasData(tTvList),
+        TvSearchLoading(),
+        TvSearchHasData(tTvList),
       ],
       verify: (bloc) {
         verify(mockSearchTv.execute(tQuery));
@@ -67,12 +67,12 @@ void main() {
       act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
-        Loading(),
-        Error('Server Failure'),
+        TvSearchLoading(),
+        TvSearchError('Server Failure'),
       ],
       verify: (bloc) {
         verify(mockSearchTv.execute(tQuery));
-        return Loading().props;
+        return TvSearchLoading().props;
       },
     );
 
@@ -86,8 +86,8 @@ void main() {
       act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
-        Loading(),
-        Empty(),
+        TvSearchLoading(),
+        TvSearchEmpty(),
       ],
       verify: (bloc) {
         verify(mockSearchTv.execute(tQuery));

@@ -14,7 +14,7 @@ import 'movie_search_page_test.mocks.dart';
 
 @GenerateMocks([SearchMovie])
 void main() {
-  late MockSearchMovies mockSearchMovie;
+  late MockSearchMovie mockSearchMovie;
   late MovieSearchBloc movieSearchBloc;
 
   setUp(() {
@@ -52,8 +52,8 @@ void main() {
       act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
-        Loading(),
-        HasData(tMovieList),
+        MovieSearchLoading(),
+        MovieSearchHasData(tMovieList),
       ],
       verify: (bloc) {
         verify(mockSearchMovie.execute(tQuery));
@@ -71,12 +71,12 @@ void main() {
       act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
-        Loading(),
-        Error('Server Failure'),
+        MovieSearchLoading(),
+        MovieSearchError('Server Failure'),
       ],
       verify: (bloc) {
         verify(mockSearchMovie.execute(tQuery));
-        return Loading().props;
+        return MovieSearchLoading().props;
       },
     );
 
@@ -90,8 +90,8 @@ void main() {
       act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
-        Loading(),
-        Empty(),
+        MovieSearchLoading(),
+        MovieSearchEmpty(),
       ],
       verify: (bloc) {
         verify(mockSearchMovie.execute(tQuery));

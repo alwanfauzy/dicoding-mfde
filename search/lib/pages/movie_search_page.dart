@@ -41,11 +41,11 @@ class MovieSearchPage extends StatelessWidget {
             BlocConsumer<MovieSearchBloc, MovieSearchState>(
               listener: (context, state) {},
               builder: (context, state) {
-                if (state is Loading) {
+                if (state is MovieSearchLoading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state is HasData) {
+                } else if (state is MovieSearchHasData) {
                   final result = state.result;
                   return Expanded(
                     child: ListView.builder(

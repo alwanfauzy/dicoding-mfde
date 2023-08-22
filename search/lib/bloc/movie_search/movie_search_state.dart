@@ -6,23 +6,23 @@ abstract class MovieSearchState extends Equatable {
   List<Object?> get props => [];
 }
 
-class Loading extends MovieSearchState {}
+class MovieSearchLoading extends MovieSearchState {}
 
-class Empty extends MovieSearchState {}
+class MovieSearchEmpty extends MovieSearchState {}
 
-class Error extends MovieSearchState {
+class MovieSearchError extends MovieSearchState {
   final String message;
 
-  Error(this.message);
+  MovieSearchError(this.message);
 
   @override
   List<Object?> get props => [message];
 }
 
-class HasData extends MovieSearchState {
+class MovieSearchHasData extends MovieSearchState {
   final List<Movie> result;
 
-  HasData(this.result);
+  MovieSearchHasData(this.result);
 
   @override
   List<Object?> get props => [result];
