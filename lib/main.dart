@@ -6,7 +6,6 @@ import 'package:core/utils/utils.dart';
 import 'package:ditonton/firebase_options.dart';
 import 'package:ditonton/pages/home_tv_page.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/bloc/movie_detail/movie_detail_bloc.dart';
 import 'package:movie/bloc/movie_now_playing/movie_now_playing_bloc.dart';

@@ -37,7 +37,6 @@ import 'package:movie/bloc/movie_now_playing/movie_now_playing_bloc.dart';
 import 'package:movie/bloc/movie_watchlist_status/movie_watchlist_status_bloc.dart';
 import 'package:search/bloc/movie_search/movie_search_bloc.dart';
 import 'package:search/bloc/tv_search/tv_search_bloc.dart';
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 import 'package:tv/bloc/tv_detail/tv_detail_bloc.dart';
 import 'package:tv/bloc/tv_now_playing/tv_now_playing_bloc.dart';
