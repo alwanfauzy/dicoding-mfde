@@ -1,4 +1,4 @@
-import 'package:tv/pages/watchlist_Tv_page.dart';
+import 'package:tv/pages/watchlist_tv_page.dart';
 import 'package:movie/pages/watchlist_movies_page.dart';
 import 'package:flutter/material.dart';
 
