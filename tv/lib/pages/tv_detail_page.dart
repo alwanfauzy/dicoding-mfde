@@ -11,6 +11,7 @@ import 'package:tv/bloc/tv_detail/tv_detail_bloc.dart';
 import 'package:tv/bloc/tv_detail/tv_detail_event.dart';
 import 'package:tv/bloc/tv_detail/tv_detail_state.dart';
 import 'package:tv/bloc/tv_recommendations/tv_recommendations_bloc.dart';
+import 'package:tv/bloc/tv_recommendations/tv_recommendations_event.dart';
 import 'package:tv/bloc/tv_recommendations/tv_recommendations_state.dart';
 import 'package:tv/bloc/tv_watchlist/tv_watchlist_bloc.dart';
 import 'package:tv/bloc/tv_watchlist/tv_watchlist_event.dart';
@@ -40,6 +41,9 @@ class _TvDetailPageState extends State<TvDetailPage> {
       context
           .read<TvWatchlistStatusBloc>()
           .add(OnFetchWatchlistStatus(widget.id));
+      context
+          .read<TvRecommendationsBloc>()
+          .add(OnFetchRecommendations(widget.id));
     });
   }
 

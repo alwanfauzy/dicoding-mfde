@@ -10,6 +10,7 @@ import 'package:movie/bloc/movie_detail/movie_detail_bloc.dart';
 import 'package:movie/bloc/movie_detail/movie_detail_event.dart';
 import 'package:movie/bloc/movie_detail/movie_detail_state.dart';
 import 'package:movie/bloc/movie_recommendations/movie_recommendations_bloc.dart';
+import 'package:movie/bloc/movie_recommendations/movie_recommendations_event.dart';
 import 'package:movie/bloc/movie_recommendations/movie_recommendations_state.dart';
 import 'package:movie/bloc/movie_watchlist/movie_watchlist_bloc.dart';
 import 'package:movie/bloc/movie_watchlist/movie_watchlist_event.dart';
@@ -39,6 +40,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
       context
           .read<MovieWatchlistStatusBloc>()
           .add(OnFetchWatchlistStatus(widget.id));
+      context
+          .read<MovieRecommendationsBloc>()
+          .add(OnFetchRecommendations(widget.id));
     });
   }
 
