@@ -203,7 +203,7 @@ class MovieDetailContent extends StatelessWidget {
                                     ),
                                   );
                                 } else {
-                                  return Container();
+                                  return const Text("Empty Data");
                                 }
                               },
                             ),
