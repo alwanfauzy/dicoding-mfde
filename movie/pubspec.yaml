@@ -15,7 +15,7 @@ dependencies:
     core:
         path: ../core
 
-    cached_network_image: ^3.2.3
+    cached_network_image: ^3.3.1
     flutter_rating_bar: ^4.0.1
     dartz: ^0.10.1
     equatable: ^2.0.5
